@@ -1,0 +1,26 @@
+#!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+NODE_VERSION=`cat .nvmrc`
+NPM_VERSION="3.10.5"
+CURRENT_NPM_VERSION=`npm --version`
+ERROR=0
+echo $PATHd
+if [ "$CURRENT_NPM_VERSION" != $NPM_VERSION ]; then
+  printf "\n${RED} ========== !!!!!!!!! IMPORTANT !!!!!!!!! ========== ${NC}\n\n"
+  echo "You must use version $NPM_VERSION of NPM. You are using $CURRENT_NPM_VERSION. First make sure you are using the correct version of nodejs ($NODE_VERSION). You may then need to run: \`npm install -g npm@$NPM_VERSION\`. Once done run \`npm install\`"
+  printf "\n\n"
+  ERROR=1
+fi
+CURRENT_NODE_VERSION=`node --version`
+if [ "$CURRENT_NODE_VERSION" != "$NODE_VERSION" ]; then
+  if [ $ERROR -eq 0 ]; then
+    printf "\n${RED} ========== !!!!!!!!! IMPORTANT !!!!!!!!! ========== ${NC}\n\n"
+  fi;
+  echo "You must use version $NODE_VERSION of nodejs. You are using $CURRENT_NODE_VERSION. Run \`nvm use\`."
+  ERROR=1
+fi
+if [ $ERROR -eq 1 ]; then
+  printf "\n${RED} =================================================== ${NC}\n\n"
+  exit 1
+fi

@@ -1,0 +1,14 @@
+# Frontend stuff
+
+node_modules
+.idea
+
+taoui/tao/static/*.hot-update.json
+taoui/tao/static/*.hot-update.js
+taoui/tao/static/main.js
+taoui/tao/static/main.js.map
+
+webpack-stats-prod.json
+webpack-stats.json
+
+npm-debug.log

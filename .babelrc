@@ -1,0 +1,11 @@
+{
+  "presets": [ "react", "es2015", "stage-0"],
+  "env": {
+    "production": {
+      "plugins": []
+    },
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
+    }
+  }
+}
